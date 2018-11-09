@@ -11,6 +11,8 @@ var catalog = require('./routes/catalog'); // Import routes for "catalog" area o
 var compression = require('compression');
 var helmet = require('helmet');
 
+require('dotenv').config();
+
 // Create the Express application object
 var app = express();
 
@@ -18,8 +20,7 @@ app.use(helmet());
 
 // Set up mongoose connection
 var mongoose = require('mongoose');
-var dev_db_url = 'mongodb://cooluser:coolpassword@ds119748.mlab.com:19748/local_library'
-//TEST
+var dev_db_url = 'mongodb://cooluser:coolpassword@ds119748.mlab.com:19748/local_library';
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
